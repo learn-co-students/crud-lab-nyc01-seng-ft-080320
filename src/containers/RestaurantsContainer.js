@@ -15,6 +15,8 @@ class RestaurantsContainer extends Component {
   }
 }
 
+
+
 const mapStateToProps = ({restaurants}) => {return {restaurants}}
 const mapDispatchToProps = (dispatch) =>{
   return {
@@ -22,3 +24,4 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer);
+
