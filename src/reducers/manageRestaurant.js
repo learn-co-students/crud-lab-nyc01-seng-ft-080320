@@ -6,12 +6,12 @@ export default function manageRestaurants(state = { restaurants: [], reviews: []
             case "ADD_RESTAURANT":
                 let restaurant = {
                     id: cuid(),
-                    text: action.restaurant.text
+                    text: action.restaurant
                 }
                 
                 return { ...state, restaurants: state.restaurants.concat(restaurant) };
             case "DELETE_RESTAURANT":
-                let lessArray = state.restaurants.filter(restaurant => restaurant.id !== action.restaurant.id)
+                let lessArray = state.restaurants.filter(restaurant => restaurant.id !== action.id)
                 console.log(action)
                 return {...state, restaurants: lessArray}
 
