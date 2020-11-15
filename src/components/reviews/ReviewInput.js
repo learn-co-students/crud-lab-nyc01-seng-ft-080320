@@ -11,10 +11,11 @@ state={
 
   submitHandler = (e) => {
     e.preventDefault()
-    this.props.addReview(this.state)
+    this.props.addReview({text: this.state.text, restaurantId: this.props.restaurantId})
     this.setState({text: ""})
   }
   render() {
+    console.log(this.props)
     return (
       <form onSubmit={this.submitHandler}>
         <input type="text" name="text" value={this.state.text} onChange={this.handleChange} />
