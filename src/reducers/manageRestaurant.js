@@ -21,6 +21,10 @@ export default function manageRestaurants(state = { restaurants: [], reviews: []
                     text: action.review.text
                 }
                 return {...state, reviews: state.reviews.concat(review)}
+
+            case "DELETE_REVIEW": 
+                let reviews = state.reviews.filter(review => review.id !== action.id)
+                return {...state, reviews}
             default:
                 return state
         }

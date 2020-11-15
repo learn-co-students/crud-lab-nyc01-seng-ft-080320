@@ -8,11 +8,13 @@ class Restaurants extends Component {
     const { restaurants, deleteRestaurant } = this.props;
     const restaurantList = restaurants.map(restaurant => {
       return (
+        <li>
         <Restaurant
           key={restaurant.id}
           restaurant={restaurant}
           deleteRestaurant={deleteRestaurant}
         />
+        </li>
       )
     });
 
