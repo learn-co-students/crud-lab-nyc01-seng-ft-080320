@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer';
-
+import { connect } from 'react-redux'
 class Restaurant extends Component {
 
 
@@ -9,14 +9,19 @@ class Restaurant extends Component {
 
     return (
       <div>
-        <li>
+        
           {restaurant.text}
-          <button> X </button>
+          <button onClick={(e)=>this.props.deleteRestaurant(restaurant)}> X </button>
           <ReviewsContainer restaurant={restaurant}/>
-        </li>
+        
       </div>
     );
   }
 };
-
-export default Restaurant;
+const mapStateToProps = store => {
+  return store
+}
+const mapDispatchToProps = dispatch => {
+  return {deleteRestaurant: restaurant => dispatch({ type: "DELETE_RESTAURANT", restaurant }),}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Restaurant);
